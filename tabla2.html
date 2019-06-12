@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ingresar tabla</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<h2>Ingresa un nuevo empleado:</h2>
+	<div id="ingreso">
+		
+	<span>Nombre:</span><input id="nombre" type="text">
+	<span>Apellido:</span><input id="apellido" type="text">
+	<span>DNI:</span><input id="dni" type="text">
+	<span>Edad:</span><input id="edad" type="number">
+	<button onclick="mostrarMensaje(document.getElementById('nombre').value,
+									document.getElementById('apellido').value,
+									document.getElementById('dni').value,
+									document.getElementById('edad').value)" type="button" id="botoningreso">INGRESAR</button>
+	</div>
+
+	<div id="tablacontenedor">
+		<h2>Lista de empleados:</h2>
+		<table>
+		<thead>
+			<th>Nombre</th>
+			<th>DNI</th>
+			<th>Edad</th>
+
+		</thead>
+		<tbody id="lista-empleados">
+				
+			
+		</tbody>
+
+	</table>
+	</div>
+
+
+
+	<script>
+		
+	var empleados =[
+					{
+			
+					    nombre: "Juan Perez",
+						dni: "26598789",
+						edad: 30,
+					},
+
+					{
+						nombre: "Pablo Fernandez",
+						dni: "32345352",
+						edad: 28,
+					},
+
+					{
+						nombre: "Pedro Hernandez",
+						dni: "44564486",
+						edad: 18,
+					},
+					{
+						nombre: "Federico Gongo",
+						dni: "31345352",
+						edad: 30,
+					},
+
+
+
+					]; //vector, array, arreglo
+					
+					var textonombre, textoapellido, textodni, textoedad, comprobaredad;
+					textonombre=document.getElementById("nombre");
+					textoapellido=document.getElementById("apellido");
+					textodni=document.getElementById("dni");
+					textoedad=document.getElementById("edad");
+					comprobaredad=textoedad;
+					comprobardni=textodni;
+
+					var lista = document.getElementById("lista-empleados");		
+						for (var i=0; i< empleados.length; i++){
+						lista.innerHTML +="<tr>"+ "<td>"+empleados[i].nombre+ "</td>"+"<td>"+empleados[i].dni+ "</td>"+"<td>"+empleados[i].edad+ "</td>"+ "</tr>";}
+
+					function mostrarMensaje(enombre,eapellido,edni,eedad){
+
+					textonombre=document.getElementById("nombre");
+					textoapellido=document.getElementById("apellido");
+					textodni=document.getElementById("dni");
+					textoedad=document.getElementById("edad");
+
+						if (enombre=="" || eapellido =="" || edni=="" || eedad=="") {
+
+
+							alert("Hay al menos un campo vacío");
+
+						}
+						
+							else{
+								
+			
+							lista.innerHTML +="<tr>"+ "<td>"+enombre+" "+eapellido+ "</td>"+"<td>"+edni+ "</td>"+"<td>"+eedad+ "</td>"+ "</tr>";
+							textonombre.value="";
+							textoapellido.value="";
+							textodni.value="";
+							textoedad.value="";
+							}
+						}
+						
+						
+
+					
+					
+
+
+					/*var lista = document.getElementById("lista-empleados");		
+					for (var i=0; i< empleados.length; i++){
+					lista.innerHTML +="<tr>"+ "<td>"+empleados[i].nombre+ "</td>"+"<td>"+empleados[i].dni+ "</td>"+"<td>"+empleados[i].edad+ "</td>"+ "</tr>";
+					}*/
+
+
+
+
+
+	</script>
+
+	
+</body>
+</html>
